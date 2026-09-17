@@ -1,5 +1,7 @@
 # GLUSHAK — лендинг мастерской выхлопных систем
 
+Продакшн: **https://auto-glushak.vercel.app**
+
 Vite + ванильный JS, GSAP (ScrollTrigger) и Lenis. Шрифты Unbounded и Onest стоят локально через npm.
 
 ## Запуск
