@@ -1,0 +1,23 @@
+{
+  "name": "glushak-landing",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173"
+  },
+  "dependencies": {
+    "@fontsource-variable/onest": "^5.1.0",
+    "@fontsource-variable/unbounded": "^5.1.0",
+    "gsap": "^3.13.0",
+    "lenis": "^1.1.18"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}

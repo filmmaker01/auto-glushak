@@ -1,0 +1,31 @@
+# зависимости и сборка
+node_modules
+dist
+dist-ssr
+*.local
+
+# Vercel
+.vercel
+
+# переменные окружения
+.env
+.env.*
+!.env.example
+
+# логи
+logs
+*.log
+npm-debug.log*
+
+# ОС и редакторы
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.sw?
+
+# локальные настройки Claude Code
+.claude

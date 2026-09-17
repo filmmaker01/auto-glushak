@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>GLUSHAK — мастерская выхлопных систем</title>
+  <meta name="description" content="Замена и ремонт глушителей, кастомный выхлоп из нержавейки, спортивный звук, насадки и резонаторы. Большинство работ за один день, гарантия на швы 2 года." />
+  <meta name="theme-color" content="#0d0e10" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d0e10'/><circle cx='16' cy='16' r='9' fill='none' stroke='%23eceef1' stroke-width='4'/><circle cx='16' cy='16' r='3' fill='%23e3a83f'/></svg>" />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- Загрузочный экран -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__mark">GLUSHAK</div>
+      <div class="loader__bar"><span></span></div>
+      <div class="loader__count"><span data-loader-count>0</span></div>
+    </div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Навигация -->
+  <header class="nav" data-nav>
+    <a class="nav__logo" href="#top" aria-label="GLUSHAK — на главную">
+      <svg class="nav__logo-icon" viewBox="0 0 32 32" aria-hidden="true">
+        <circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="3.5" />
+        <circle cx="16" cy="16" r="3.5" fill="url(#heat-a)" />
+        <defs>
+          <linearGradient id="heat-a" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e3a83f" /><stop offset=".5" stop-color="#a8478f" /><stop offset="1" stop-color="#2d86e6" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <span>GLUSHAK</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Основная навигация">
+      <a href="#services">Услуги</a>
+      <a href="#works">До и после</a>
+      <a href="#gallery">Проекты</a>
+      <a href="#process">Как работаем</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="nav__side">
+      <a class="nav__phone" href="tel:+74950000000">+7 495 000-00-00</a>
+      <a class="btn btn--steel btn--sm" href="#request" data-mode="book" data-magnetic><span>Записаться</span></a>
+      <button class="nav__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu" data-burger>
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Мобильное меню -->
+  <div class="menu" id="menu" data-menu aria-hidden="true">
+    <nav class="menu__links" aria-label="Мобильная навигация">
+      <a href="#services"><span>Услуги</span></a>
+      <a href="#works"><span>До и после</span></a>
+      <a href="#gallery"><span>Проекты</span></a>
+      <a href="#process"><span>Как работаем</span></a>
+      <a href="#reviews"><span>Отзывы</span></a>
+      <a href="#contacts"><span>Контакты</span></a>
+    </nav>
+    <div class="menu__foot">
+      <a href="tel:+74950000000">+7 495 000-00-00</a>
+      <span>Ежедневно, 10:00–21:00</span>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero" data-hero>
+      <div class="hero__media" data-hero-media>
+        <img
+          src="https://images.unsplash.com/photo-1530675706010-bc677ce30ab6?auto=format&fit=crop&q=72&w=1800"
+          srcset="https://images.unsplash.com/photo-1530675706010-bc677ce30ab6?auto=format&fit=crop&q=70&w=900 900w,
+                  https://images.unsplash.com/photo-1530675706010-bc677ce30ab6?auto=format&fit=crop&q=72&w=1800 1800w,
+                  https://images.unsplash.com/photo-1530675706010-bc677ce30ab6?auto=format&fit=crop&q=72&w=2600 2600w"
+          sizes="100vw"
+          alt="Корма Nissan GT-R с четырьмя патрубками выхлопа в тёмном тоннеле"
+          fetchpriority="high" />
+      </div>
+      <div class="hero__shade" aria-hidden="true"></div>
+
+      <div class="hero__content wrap">
+        <p class="hero__kicker" data-hero-fade>Мастерская выхлопных систем в Москве</p>
+        <h1 class="hero__title" aria-label="Выхлоп под ваш звук">
+          <span class="line"><span class="heat-text">Выхлоп</span></span>
+          <span class="line"><span>под ваш</span></span>
+          <span class="line"><span>звук</span></span>
+        </h1>
+        <div class="hero__row">
+          <p class="hero__lead" data-hero-fade>
+            Чиним и&nbsp;меняем глушители, собираем кастомные системы из&nbsp;нержавейки, ставим заслонки, резонаторы и&nbsp;насадки.
+            Большинство работ — за&nbsp;один день.
+          </p>
+          <div class="hero__cta" data-hero-fade>
+            <a class="btn btn--steel" href="#request" data-mode="book" data-magnetic><span>Записаться</span></a>
+            <a class="btn btn--line" href="#request" data-mode="calc" data-magnetic><span>Рассчитать стоимость</span></a>
+          </div>
+        </div>
+      </div>
+
+      <dl class="hero__specs wrap" data-hero-specs>
+        <div><dt>1 день</dt><dd>средний срок работ</dd></div>
+        <div><dt>2 года</dt><dd>гарантия на сварные швы</dd></div>
+        <div><dt>AISI 304</dt><dd>нержавеющая сталь</dd></div>
+        <div><dt><span data-count="1400">1400</span>+</dt><dd>собранных систем с 2014 года</dd></div>
+      </dl>
+    </section>
+
+    <!-- Бегущая строка -->
+    <div class="marquee" aria-hidden="true" data-marquee>
+      <div class="marquee__track" data-marquee-track>
+        <div class="marquee__group">
+          <span>Глушители</span><i></i><span class="is-outline">Резонаторы</span><i></i><span>Даунпайпы</span><i></i>
+          <span class="is-outline">Заслонки</span><i></i><span>Насадки</span><i></i><span class="is-outline">Пламегасители</span><i></i>
+          <span>Гофры</span><i></i><span class="is-outline">Катализаторы</span><i></i>
+        </div>
+        <div class="marquee__group">
+          <span>Глушители</span><i></i><span class="is-outline">Резонаторы</span><i></i><span>Даунпайпы</span><i></i>
+          <span class="is-outline">Заслонки</span><i></i><span>Насадки</span><i></i><span class="is-outline">Пламегасители</span><i></i>
+          <span>Гофры</span><i></i><span class="is-outline">Катализаторы</span><i></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- УСЛУГИ -->
+    <section class="services section" id="services">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="title" data-lines>
+            <span class="line"><span>Всё, что между</span></span>
+            <span class="line"><span>мотором и бампером</span></span>
+          </h2>
+          <p class="section__note" data-fade>
+            Работаем с&nbsp;любой частью системы — от&nbsp;приёмной трубы до&nbsp;насадки.
+            Цены ниже — стартовые, точную называем после осмотра на&nbsp;подъёмнике.
+          </p>
+        </div>
+
+        <ul class="services__list" data-services>
+          <li class="service" data-img="https://images.unsplash.com/photo-1679621167140-69a9c8c1b87e?auto=format&fit=crop&q=70&w=900">
+            <a href="#request" data-mode="calc" data-service="Замена или ремонт глушителя">
+              <h3 class="service__name">Замена и ремонт глушителей</h3>
+              <p class="service__text">Прогорел, гремит или оторвался — заварим или поставим новый. Подберём банку по&nbsp;звуку и&nbsp;бюджету.</p>
+              <span class="service__price">от 3 500 ₽</span>
+              <span class="service__go" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li class="service" data-img="https://images.unsplash.com/photo-1607282061628-106a47943a5f?auto=format&fit=crop&q=70&w=900">
+            <a href="#request" data-mode="calc" data-service="Кастомный выхлоп">
+              <h3 class="service__name">Кастомный выхлоп</h3>
+              <p class="service__text">Система с&nbsp;нуля под ваш автомобиль: трассировка, диаметр труб, банки, подвесы. Гнём и&nbsp;варим у&nbsp;себя.</p>
+              <span class="service__price">от 45 000 ₽</span>
+              <span class="service__go" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li class="service" data-img="https://images.unsplash.com/photo-1572435759312-848041b1d659?auto=format&fit=crop&q=70&w=900">
+            <a href="#request" data-mode="calc" data-service="Спортивный звук">
+              <h3 class="service__name">Спортивный звук</h3>
+              <p class="service__text">Заслонки с&nbsp;пульта, прямоточные банки, X- и&nbsp;H-пайпы. Тихо во&nbsp;дворе, громко на&nbsp;трассе.</p>
+              <span class="service__price">от 18 000 ₽</span>
+              <span class="service__go" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li class="service" data-img="https://images.unsplash.com/photo-1777173649680-45b71ee019d5?auto=format&fit=crop&q=70&w=900">
+            <a href="#request" data-mode="calc" data-service="Насадки">
+              <h3 class="service__name">Насадки</h3>
+              <p class="service__text">Нержавейка, карбон, титан с&nbsp;побежалостью. Подгоняем под вырез бампера, чтобы стояли как с&nbsp;завода.</p>
+              <span class="service__price">от 4 000 ₽</span>
+              <span class="service__go" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li class="service" data-img="https://images.unsplash.com/photo-1765903916132-7d2fa8ad4c66?auto=format&fit=crop&q=70&w=900">
+            <a href="#request" data-mode="calc" data-service="Резонаторы и пламегасители">
+              <h3 class="service__name">Резонаторы и пламегасители</h3>
+              <p class="service__text">Убираем гул на&nbsp;крейсерской скорости или добавляем баса — в&nbsp;зависимости от&nbsp;того, что вам мешает.</p>
+              <span class="service__price">от 6 500 ₽</span>
+              <span class="service__go" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li class="service" data-img="https://images.unsplash.com/photo-1683470156390-703e9313dab6?auto=format&fit=crop&q=70&w=900">
+            <a href="#request" data-mode="calc" data-service="Доработка выхлопной системы">
+              <h3 class="service__name">Доработка системы</h3>
+              <p class="service__text">Даунпайпы, замена катализаторов, гофры, раздвоение выхлопа. Убираем заломы и&nbsp;лишние изгибы.</p>
+              <span class="service__price">от 5 000 ₽</span>
+              <span class="service__go" aria-hidden="true"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="services__preview" data-services-preview aria-hidden="true"></div>
+    </section>
+
+    <!-- ДО / ПОСЛЕ -->
+    <section class="works section" id="works">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="title" data-lines>
+            <span class="line"><span>До и после</span></span>
+          </h2>
+          <div class="works__tabs" role="tablist" aria-label="Примеры работ" data-works-tabs>
+            <button role="tab" aria-selected="true" data-case="0">Насадки</button>
+            <button role="tab" aria-selected="false" data-case="1">Глушитель и трубы</button>
+            <button role="tab" aria-selected="false" data-case="2">Система целиком</button>
+          </div>
+        </div>
+
+        <div class="works__grid">
+          <div class="compare" data-compare style="--pos: 50%">
+            <img class="compare__img" data-compare-before alt="До: заводская насадка" loading="lazy"
+              src="https://images.unsplash.com/photo-1785448212806-3ef61c26f395?auto=format&fit=crop&q=72&w=1600&h=1000" />
+            <div class="compare__after">
+              <img class="compare__img" data-compare-after alt="После: титановые насадки с побежалостью" loading="lazy"
+                src="https://images.unsplash.com/photo-1777173649680-45b71ee019d5?auto=format&fit=crop&q=72&w=1600&h=1000" />
+            </div>
+            <span class="compare__tag compare__tag--before">До</span>
+            <span class="compare__tag compare__tag--after">После</span>
+            <div class="compare__handle" aria-hidden="true">
+              <span class="compare__knob">
+                <svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" /></svg>
+              </span>
+            </div>
+            <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Сравнение до и после: положение шторки" data-compare-range />
+          </div>
+
+          <aside class="works__info" data-works-info>
+            <h3 class="works__name" data-works-name>Титановые насадки вместо заводских</h3>
+            <p class="works__text" data-works-text>Срезали штатные овальные насадки, вварили сдвоенные титановые Ø&nbsp;90&nbsp;мм. Посадку выставили по&nbsp;вырезу диффузора с&nbsp;зазором 8&nbsp;мм по&nbsp;кругу.</p>
+            <dl class="works__facts">
+              <div><dt>Срок</dt><dd data-works-time>3 часа</dd></div>
+              <div><dt>Материал</dt><dd data-works-mat>Титан Grade 2</dd></div>
+              <div><dt>Стоимость</dt><dd data-works-price>14 000 ₽</dd></div>
+            </dl>
+            <a class="link-arrow" href="#request" data-mode="calc">Хочу так же</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ГАЛЕРЕЯ -->
+    <section class="gallery" id="gallery" data-gallery>
+      <div class="gallery__pin" data-gallery-pin>
+        <div class="gallery__head wrap">
+          <h2 class="title" data-lines>
+            <span class="line"><span>Машины, которые</span></span>
+            <span class="line"><span>уехали от нас громче</span></span>
+          </h2>
+          <p class="gallery__hint"><span class="gallery__hint-desk">Листайте вниз</span><span class="gallery__hint-mob">Листайте вбок</span></p>
+        </div>
+
+        <div class="gallery__viewport" data-gallery-viewport>
+          <div class="gallery__track" data-gallery-track>
+            <figure class="car car--tall">
+              <div class="car__img"><img loading="lazy" alt="Porsche 911 сзади на городской улице" src="https://images.unsplash.com/photo-1614605637622-84a362f981f1?auto=format&fit=crop&q=70&w=1000" /></div>
+              <figcaption><b>Porsche 911 Carrera S</b><span>Система с заслонками, даунпайпы</span></figcaption>
+            </figure>
+            <figure class="car car--wide">
+              <div class="car__img"><img loading="lazy" alt="Задний фонарь Porsche 911 под дождём" src="https://images.unsplash.com/photo-1589270618430-e2e652059aac?auto=format&fit=crop&q=70&w=1400" /></div>
+              <figcaption><b>Porsche 911 Turbo</b><span>Прямоточные банки, титановые насадки</span></figcaption>
+            </figure>
+            <figure class="car car--tall">
+              <div class="car__img"><img loading="lazy" alt="Задние фонари Ford Mustang в темноте" src="https://images.unsplash.com/photo-1580014317999-e9f1936787a5?auto=format&fit=crop&q=70&w=1000" /></div>
+              <figcaption><b>Ford Mustang GT</b><span>H-пайп, удаление резонаторов</span></figcaption>
+            </figure>
+            <figure class="car car--tall">
+              <div class="car__img"><img loading="lazy" alt="Чёрный BMW M на фоне бетонных конструкций" src="https://images.unsplash.com/photo-1615644190630-c6c6f230a6ed?auto=format&fit=crop&q=70&w=1000" /></div>
+              <figcaption><b>BMW M4 Competition</b><span>Кастомная средняя часть, карбоновые насадки</span></figcaption>
+            </figure>
+            <figure class="car car--wide">
+              <div class="car__img"><img loading="lazy" alt="Pontiac Trans Am с включёнными фонарями ночью" src="https://images.unsplash.com/photo-1780015504584-59c05c6f50be?auto=format&fit=crop&q=70&w=1400" /></div>
+              <figcaption><b>Pontiac Trans Am</b><span>Полная система 2,5″ из нержавейки</span></figcaption>
+            </figure>
+            <figure class="car car--tall">
+              <div class="car__img"><img loading="lazy" alt="Чёрное купе ночью на мокрой дороге" src="https://images.unsplash.com/photo-1610374634235-b51ef357f905?auto=format&fit=crop&q=70&w=1000" /></div>
+              <figcaption><b>Toyota GT86</b><span>Коллектор 4-2-1, резонатор, банка</span></figcaption>
+            </figure>
+            <figure class="car car--wide">
+              <div class="car__img"><img loading="lazy" alt="Белый Porsche 930 ночью" src="https://images.unsplash.com/photo-1631617790717-c154e4d6e5fa?auto=format&fit=crop&q=70&w=1400" /></div>
+              <figcaption><b>Porsche 930 Turbo</b><span>Восстановление системы по заводским лекалам</span></figcaption>
+            </figure>
+            <a class="gallery__more" href="#request" data-mode="calc">
+              <span>Ваша машина — следующая</span>
+              <em>Рассчитать стоимость</em>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ПРЕИМУЩЕСТВА -->
+    <section class="why section" id="why">
+      <div class="wrap why__grid">
+        <div class="why__media" data-clip>
+          <img data-parallax="12" loading="lazy" alt="Сварщик варит трубу аргоном" src="https://images.unsplash.com/photo-1683470156390-703e9313dab6?auto=format&fit=crop&q=72&w=1200" />
+          <p class="why__media-note">Каждый шов варим аргоном и&nbsp;проверяем на&nbsp;герметичность дым-машиной</p>
+        </div>
+
+        <div class="why__body">
+          <h2 class="title" data-lines>
+            <span class="line"><span>Почему швы</span></span>
+            <span class="line"><span>не придётся</span></span>
+            <span class="line"><span>переваривать</span></span>
+          </h2>
+
+          <ul class="why__list">
+            <li data-fade>
+              <h3>TIG-сварка</h3>
+              <p>Швы ровные, герметичные и&nbsp;не&nbsp;ржавеют. Полуавтоматом выхлоп не&nbsp;варим вообще.</p>
+            </li>
+            <li data-fade>
+              <h3>Нержавейка AISI 304</h3>
+              <p>Трубы и&nbsp;банки не&nbsp;прогорают за&nbsp;две зимы, как чёрная сталь. Реагенты им не&nbsp;страшны.</p>
+            </li>
+            <li data-fade>
+              <h3>Звук — до начала работ</h3>
+              <p>Даём послушать похожие проекты и&nbsp;замеряем громкость шумомером до&nbsp;и&nbsp;после.</p>
+            </li>
+            <li data-fade>
+              <h3>Цена не меняется</h3>
+              <p>Смету фиксируем после осмотра. Если в&nbsp;процессе вылез сюрприз — сначала звоним вам.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="carbon-band" aria-hidden="true">
+        <img data-parallax="18" loading="lazy" alt="" src="https://images.unsplash.com/photo-1776963638301-513cbd37eadd?auto=format&fit=crop&q=60&w=1800&h=700" />
+      </div>
+    </section>
+
+    <!-- ЭТАПЫ -->
+    <section class="process section" id="process" data-process>
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="title" data-lines>
+            <span class="line"><span>От заявки</span></span>
+            <span class="line"><span>до первого прогазовки</span></span>
+          </h2>
+          <p class="section__note" data-fade>Обычно всё укладывается в&nbsp;один визит. Сложные системы — 2–4 дня, машина остаётся в&nbsp;тёплом боксе.</p>
+        </div>
+
+        <div class="process__rail">
+          <div class="process__pipe" aria-hidden="true"><span data-pipe-fill></span></div>
+
+          <ol class="process__steps">
+            <li class="step" data-step>
+              <span class="step__node" aria-hidden="true"></span>
+              <span class="step__num">01</span>
+              <h3>Заявка</h3>
+              <p>Рассказываете, что беспокоит или какой звук хотите. Называем вилку цены по&nbsp;телефону.</p>
+              <span class="step__time">10 минут</span>
+            </li>
+            <li class="step" data-step>
+              <span class="step__node" aria-hidden="true"></span>
+              <span class="step__num">02</span>
+              <h3>Осмотр</h3>
+              <p>Поднимаем машину, показываем состояние системы и&nbsp;даём послушать варианты.</p>
+              <span class="step__time">30 минут, бесплатно</span>
+            </li>
+            <li class="step" data-step>
+              <span class="step__node" aria-hidden="true"></span>
+              <span class="step__num">03</span>
+              <h3>Смета</h3>
+              <p>Фиксируем работы, материалы и&nbsp;срок. После этого цена не&nbsp;растёт.</p>
+              <span class="step__time">В тот же день</span>
+            </li>
+            <li class="step" data-step>
+              <span class="step__node" aria-hidden="true"></span>
+              <span class="step__num">04</span>
+              <h3>Сборка</h3>
+              <p>Гнём трубы, варим аргоном, ставим на&nbsp;новые подвесы. Фото процесса шлём в&nbsp;мессенджер.</p>
+              <span class="step__time">От 3 часов</span>
+            </li>
+            <li class="step" data-step>
+              <span class="step__node" aria-hidden="true"></span>
+              <span class="step__num">05</span>
+              <h3>Выдача</h3>
+              <p>Проверяем герметичность, меряем громкость, вместе заводим. Гарантийный талон — на&nbsp;руки.</p>
+              <span class="step__time">Гарантия 2 года</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ОТЗЫВЫ -->
+    <section class="reviews section" id="reviews">
+      <div class="wrap">
+        <div class="section__head section__head--row">
+          <h2 class="title" data-lines>
+            <span class="line"><span>Что говорят</span></span>
+            <span class="line"><span>владельцы</span></span>
+          </h2>
+          <div class="reviews__nav">
+            <p class="reviews__score"><b>4,9</b><span>средняя оценка<br />на Яндекс Картах, 312 отзывов</span></p>
+            <div class="reviews__arrows">
+              <button type="button" aria-label="Предыдущий отзыв" data-reviews-prev><svg viewBox="0 0 24 24"><path d="M14 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" /></svg></button>
+              <button type="button" aria-label="Следующий отзыв" data-reviews-next><svg viewBox="0 0 24 24"><path d="M10 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" /></svg></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews__viewport" data-reviews tabindex="0" aria-label="Отзывы клиентов">
+        <div class="reviews__track">
+          <article class="review">
+            <div class="review__stars" aria-label="Оценка 5 из 5"><i></i><i></i><i></i><i></i><i></i></div>
+            <p>Приехал с&nbsp;гулом на&nbsp;110&nbsp;км/ч после чужой «доработки». Ребята за&nbsp;полдня переварили среднюю часть и&nbsp;поставили резонатор — гул ушёл, бас остался. Шумомер показали до&nbsp;и&nbsp;после.</p>
+            <footer><b>Артём К.</b><span>BMW 340i</span></footer>
+          </article>
+          <article class="review">
+            <div class="review__stars" aria-label="Оценка 5 из 5"><i></i><i></i><i></i><i></i><i></i></div>
+            <p>Делал систему с&nbsp;заслонками. Утром выезжаю тихо, соседи довольны. На&nbsp;трек-дне открываю — и&nbsp;это совсем другая машина. Швы как на&nbsp;заводском титане.</p>
+            <footer><b>Михаил С.</b><span>Porsche Cayman S</span></footer>
+          </article>
+          <article class="review">
+            <div class="review__stars" aria-label="Оценка 5 из 5"><i></i><i></i><i></i><i></i><i></i></div>
+            <p>Обычный прогоревший глушитель на&nbsp;семейном кроссовере. Думал, разведут на&nbsp;замену всего, а&nbsp;в&nbsp;итоге заварили за&nbsp;час и&nbsp;взяли 3&nbsp;500. Показали всё на&nbsp;подъёмнике.</p>
+            <footer><b>Дмитрий В.</b><span>Kia Sportage</span></footer>
+          </article>
+          <article class="review">
+            <div class="review__stars" aria-label="Оценка 5 из 5"><i></i><i></i><i></i><i></i><i></i></div>
+            <p>Насадки подогнали под диффузор так, что на&nbsp;сходке спрашивали, какой это заводской пакет. Зазор по&nbsp;кругу одинаковый, ничего не&nbsp;дребезжит.</p>
+            <footer><b>Олег Н.</b><span>Audi RS5</span></footer>
+          </article>
+          <article class="review">
+            <div class="review__stars" aria-label="Оценка 4 из 5"><i></i><i></i><i></i><i></i><i class="is-off"></i></div>
+            <p>По&nbsp;работе вопросов ноль, система на&nbsp;Мустанге звучит именно как хотел. Минус звезда за&nbsp;то, что ждал запись неделю — но&nbsp;это скорее показатель.</p>
+            <footer><b>Игорь П.</b><span>Ford Mustang GT</span></footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ + ФОРМА -->
+    <section class="contacts section" id="contacts">
+      <div class="wrap contacts__grid">
+        <div class="contacts__info">
+          <h2 class="title" data-lines>
+            <span class="line"><span>Приезжайте</span></span>
+            <span class="line"><span>послушать</span></span>
+          </h2>
+
+          <dl class="contacts__list">
+            <div data-fade>
+              <dt>Адрес</dt>
+              <dd>Москва, ул. Складочная, 1, стр. 18<br /><a class="link-arrow" href="https://yandex.ru/maps/?text=Москва, ул. Складочная, 1с18" target="_blank" rel="noopener">Построить маршрут</a></dd>
+            </div>
+            <div data-fade>
+              <dt>Часы работы</dt>
+              <dd>Ежедневно, 10:00–21:00<br /><span class="muted">Осмотр на подъёмнике — по записи</span></dd>
+            </div>
+            <div data-fade>
+              <dt>Телефон и мессенджеры</dt>
+              <dd><a class="contacts__phone" href="tel:+74950000000">+7 495 000-00-00</a><br />
+                <span class="contacts__social"><a href="#" aria-label="Telegram">Telegram</a><a href="#" aria-label="WhatsApp">WhatsApp</a><a href="#" aria-label="Instagram">Instagram</a></span>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="contacts__photo" data-clip>
+            <img data-parallax="10" loading="lazy" alt="Мастер работает под автомобилем на подъёмнике" src="https://images.unsplash.com/photo-1645445511761-01834d53205b?auto=format&fit=crop&q=70&w=1200&h=700" />
+          </div>
+        </div>
+
+        <div class="request" id="request">
+          <div class="request__tabs" role="tablist" aria-label="Тип заявки" data-request-tabs>
+            <button type="button" role="tab" aria-selected="true" data-mode-tab="book">Записаться</button>
+            <button type="button" role="tab" aria-selected="false" data-mode-tab="calc">Рассчитать стоимость</button>
+          </div>
+
+          <form class="request__form" novalidate data-request-form>
+            <label class="field">
+              <span>Как вас зовут</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label class="field">
+              <span>Телефон</span>
+              <input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+7" required data-phone />
+              <em class="field__error" data-error-phone hidden>Введите номер полностью: +7 и 10 цифр</em>
+            </label>
+            <label class="field">
+              <span>Автомобиль</span>
+              <input type="text" name="car" placeholder="Марка, модель, год" />
+            </label>
+
+            <fieldset class="chips">
+              <legend>Что нужно сделать</legend>
+              <label><input type="radio" name="service" value="Замена или ремонт глушителя" /><span>Ремонт глушителя</span></label>
+              <label><input type="radio" name="service" value="Кастомный выхлоп" /><span>Кастомный выхлоп</span></label>
+              <label><input type="radio" name="service" value="Спортивный звук" /><span>Спортивный звук</span></label>
+              <label><input type="radio" name="service" value="Насадки" /><span>Насадки</span></label>
+              <label><input type="radio" name="service" value="Резонаторы и пламегасители" /><span>Резонатор</span></label>
+              <label><input type="radio" name="service" value="Доработка выхлопной системы" /><span>Доработка</span></label>
+            </fieldset>
+
+            <label class="field" data-only="book">
+              <span>Удобный день</span>
+              <input type="date" name="date" />
+            </label>
+            <label class="field" data-only="calc" hidden>
+              <span>Опишите задачу</span>
+              <textarea name="comment" rows="3" placeholder="Например: гудит на трассе, хочу убрать гул, но оставить бас"></textarea>
+            </label>
+
+            <button class="btn btn--steel btn--full" type="submit"><span data-submit-label>Записаться</span></button>
+            <p class="request__legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+          </form>
+
+          <div class="request__done" data-request-done hidden tabindex="-1">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="url(#heat-a)" stroke-width="3" /><path d="M15 24.5l6.5 6.5L34 18" fill="none" stroke="currentColor" stroke-width="3" /></svg>
+            <h3 data-done-title>Вы записаны</h3>
+            <p>Перезвоним в&nbsp;течение 15&nbsp;минут, чтобы подтвердить время и&nbsp;уточнить детали.</p>
+            <button type="button" class="link-arrow" data-request-reset>Отправить ещё одну заявку</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ФИНАЛЬНЫЙ CTA -->
+    <section class="final" data-final>
+      <div class="final__frame" data-final-frame>
+        <div class="final__media">
+          <img data-parallax="14" loading="lazy" alt="Четыре патрубка выхлопа в карбоновом диффузоре" src="https://images.unsplash.com/photo-1572435759312-848041b1d659?auto=format&fit=crop&q=72&w=2000" />
+        </div>
+        <div class="final__content wrap">
+          <h2 class="final__title" data-lines>
+            <span class="line"><span>Ваша машина</span></span>
+            <span class="line"><span>может звучать</span></span>
+            <span class="line"><span class="heat-text">лучше</span></span>
+          </h2>
+          <p data-fade>Осмотр на&nbsp;подъёмнике и&nbsp;подбор звука — бесплатно. Займёт полчаса.</p>
+          <div class="final__cta" data-fade>
+            <a class="btn btn--steel" href="#request" data-mode="book" data-magnetic><span>Записаться</span></a>
+            <a class="btn btn--line" href="#request" data-mode="calc" data-magnetic><span>Рассчитать стоимость</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__top">
+      <p>Мастерская выхлопных систем.<br />Москва, с&nbsp;2014 года.</p>
+      <nav aria-label="Навигация в подвале">
+        <a href="#services">Услуги</a>
+        <a href="#works">До и после</a>
+        <a href="#gallery">Проекты</a>
+        <a href="#process">Как работаем</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <p class="footer__legal">© 2026 GLUSHAK<br /><a href="#">Политика конфиденциальности</a></p>
+    </div>
+    <div class="footer__word" aria-hidden="true" data-footer-word>
+      <span>G</span><span>L</span><span>U</span><span>S</span><span>H</span><span>A</span><span>K</span>
+    </div>
+  </footer>
+
+  <!-- Липкая панель на мобильных -->
+  <div class="dock" data-dock>
+    <a class="dock__call" href="tel:+74950000000" aria-label="Позвонить">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z" fill="none" stroke="currentColor" stroke-width="1.8" /></svg>
+    </a>
+    <a class="btn btn--steel btn--full" href="#request" data-mode="book"><span>Записаться</span></a>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
