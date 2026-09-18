@@ -761,6 +761,7 @@ html.lenis, html.lenis body { height: auto; }
   text-transform: uppercase;
 }
 .works__text { color: var(--steel); }
+.works__note { font-size: 13px; line-height: 1.45; color: #6d737b; }
 .works__facts { width: 100%; margin-top: auto; border-top: 1px solid var(--seam); }
 .works__facts > div {
   display: flex;

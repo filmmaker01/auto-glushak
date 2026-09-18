@@ -15,9 +15,6 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 const mm = gsap.matchMedia();
 
-const unsplash = (id, w, h) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&q=72&w=${w}${h ? `&h=${h}` : ''}`;
-
 /* ==========================================================================
    Плавный скролл
    ========================================================================== */
@@ -498,36 +495,36 @@ function initServicesPreview() {
 
 const CASES = [
   {
-    before: 'photo-1785448212806-3ef61c26f395',
-    after: 'photo-1777173649680-45b71ee019d5',
-    altBefore: 'До: заводская овальная насадка',
-    altAfter: 'После: сдвоенные титановые насадки с побежалостью',
-    name: 'Титановые насадки вместо заводских',
-    text: 'Срезали штатные овальные насадки, вварили сдвоенные титановые Ø 90 мм. Посадку выставили по вырезу диффузора с зазором 8 мм по кругу.',
+    before: '/img/case1-do.webp',
+    after: '/img/case2-posle.webp',
+    altBefore: 'До: снятая прогоревшая труба с гофрой и катализатором',
+    altAfter: 'После: новая банка глушителя из нержавейки на машине',
+    name: 'Прогоревший участок заменили на нержавейку',
+    text: 'Вырезали сгнившую трубу с гофрой, поставили новый участок и банку из нержавейки. Крепления вернули на штатные места.',
     time: '3 часа',
-    mat: 'Титан Grade 2',
+    mat: 'AISI 304',
     price: '14 000 ₽',
   },
   {
-    before: 'photo-1679621167140-69a9c8c1b87e',
-    after: 'photo-1607282061628-106a47943a5f',
-    altBefore: 'До: старый глушитель из чёрной стали',
-    altAfter: 'После: новые трубы из нержавейки с аккуратными швами',
-    name: 'Нержавейка вместо прогоревшей банки',
-    text: 'Задняя банка прогорела по шву, трубы — в заломах после прошлого ремонта. Собрали заднюю часть заново: труба Ø 63 мм, гибы на дорне, прямоточная банка.',
+    before: '/img/case2-do.webp',
+    after: '/img/case1-posle.webp',
+    altBefore: 'До: ржавая выхлопная трасса под днищем автомобиля',
+    altAfter: 'После: новая выхлопная трасса из нержавейки с раздвоением',
+    name: 'Задняя часть трассы заново',
+    text: 'Старая трасса догнивала по швам. Построили геометрию заново, согнули трубы по месту и сварили аргоном.',
     time: '1 день',
     mat: 'AISI 304, TIG',
     price: '38 000 ₽',
   },
   {
-    before: 'photo-1765903916132-7d2fa8ad4c66',
-    after: 'photo-1572435759312-848041b1d659',
-    altBefore: 'До: заводская система, вид снизу',
-    altAfter: 'После: четыре патрубка в карбоновом диффузоре',
-    name: 'Система с заслонками от катализатора',
-    text: 'Заводской выхлоп душил мотор после чип-тюнинга. Сделали систему целиком: даунпайп, X-пайп, две банки с электрозаслонками и раздвоение на четыре патрубка.',
+    before: '/img/case3-do.webp',
+    after: '/img/case3-posle.webp',
+    altBefore: 'До: заводская выхлопная система под днищем',
+    altAfter: 'После: сдвоенная титановая система с побежалостью на срезах',
+    name: 'Система под ключ с раздвоением',
+    text: 'Собрали систему целиком: трасса, раздвоение на две стороны и насадки. Побежалость на срезах — от нагрева титана, не краска.',
     time: '4 дня',
-    mat: 'AISI 304, карбон',
+    mat: 'Нержавейка и титан',
     price: '185 000 ₽',
   },
 ];
@@ -600,15 +597,15 @@ function initCompare() {
     price: $('[data-works-price]'),
   };
   CASES.forEach((c) => {
-    new Image().src = unsplash(c.before, 1600, 1000);
-    new Image().src = unsplash(c.after, 1600, 1000);
+    new Image().src = c.before;
+    new Image().src = c.after;
   });
 
   let current = 0;
   const swap = (i) => {
     const c = CASES[i];
-    before.src = unsplash(c.before, 1600, 1000);
-    after.src = unsplash(c.after, 1600, 1000);
+    before.src = c.before;
+    after.src = c.after;
     before.alt = c.altBefore;
     after.alt = c.altAfter;
     Object.keys(fields).forEach((k) => (fields[k].textContent = c[k]));
