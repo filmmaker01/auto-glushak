@@ -1,5 +1,5 @@
 /* ==========================================================================
-   KOR&TIM — мастерская выхлопных систем
+   KOR.TEAM (Кор & Тим) — мастерская выхлопных систем
    Палитра: асфальт, графит, шлифованная сталь + побежалость титана
    ========================================================================== */
 
@@ -327,6 +327,17 @@ html.lenis, html.lenis body { height: auto; }
 
 .nav__side { display: flex; align-items: center; gap: 22px; }
 .nav__phone { font-family: var(--font-display); font-weight: 500; font-size: 13px; white-space: nowrap; }
+.nav__tg {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-left: -8px;
+  color: rgba(236, 238, 241, 0.78);
+  transition: color 0.3s;
+}
+.nav__tg svg { width: 20px; height: 20px; }
+.nav__tg:hover { color: #fff; }
 
 .nav__burger {
   display: none;
@@ -454,7 +465,8 @@ html.lenis, html.lenis body { height: auto; }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2.2rem, min(7.6vw, 12.4vh), 8.75rem);
+  /* «ОБОРАЧИВАЮТСЯ.» = 11,85em: 7.2vw и потолок 7.5rem держат строку в ширине контейнера */
+  font-size: clamp(2.2rem, min(7.2vw, 12.4vh), 7.5rem);
   line-height: 0.98;
   letter-spacing: -0.035em;
   text-transform: uppercase;
@@ -1316,7 +1328,7 @@ html.lenis, html.lenis body { height: auto; }
   margin-top: clamp(40px, 6vw, 88px);
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 17.2vw;
+  font-size: 14.8vw;
   line-height: 0.76;
   letter-spacing: -0.04em;
   white-space: nowrap;
@@ -1366,7 +1378,7 @@ html.lenis, html.lenis body { height: auto; }
       linear-gradient(180deg, rgba(13, 14, 16, 0.75) 0%, rgba(13, 14, 16, 0) 24%);
   }
   .hero__content { padding-top: calc(58svh - min(24vw, 130px)); }
-  .hero__title { font-size: clamp(2rem, 12.4vw, 5.5rem); line-height: 1; }
+  .hero__title { font-size: clamp(1.4rem, 7.4vw, 4.6rem); line-height: 1; }
 }
 
 @media (max-width: 1024px) {
@@ -1427,7 +1439,7 @@ html.lenis, html.lenis body { height: auto; }
 @media (max-width: 720px) {
   body { font-size: 16px; }
 
-  .nav__phone, .nav .btn { display: none; }
+  .nav__phone, .nav__tg, .nav .btn { display: none; }
   .nav { padding-block: 12px; }
 
   .hero__kicker { font-size: 14px; }
