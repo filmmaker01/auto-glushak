@@ -139,10 +139,22 @@ async function sendTelegram(token, chatId, message) {
     });
     const data = await res.json().catch(() => ({}));
     if (res.ok && data.ok) return { ok: true };
-    // в лог — только код и описание от Telegram, без токена и данных клиента
-    return { ok: false, reason: `telegram ${res.status}: ${data.description || 'no description'}` };
+    // в лог — только код и описание от Telegram, без токена и данных клиента;
+    // клиенту — лишь категория, чтобы причину было видно даже без доступа к логам
+    const desc = String(data.description || '');
+    const code =
+      res.status === 401 || res.status === 404 ? 'telegram_bad_token'
+      : /chat not found/i.test(desc) ? 'telegram_chat_not_found'
+      : res.status === 403 ? 'telegram_forbidden'
+      : res.status === 429 ? 'telegram_rate_limited'
+      : 'telegram_error';
+    return { ok: false, code, reason: `telegram ${res.status}: ${desc || 'no description'}` };
   } catch (e) {
-    return { ok: false, reason: e.name === 'AbortError' ? 'telegram timeout' : `telegram network error: ${e.name}` };
+    return {
+      ok: false,
+      code: e.name === 'AbortError' ? 'telegram_timeout' : 'telegram_unreachable',
+      reason: e.name === 'AbortError' ? 'telegram timeout' : `telegram network error: ${e.name}`,
+    };
   } finally {
     clearTimeout(timer);
   }
@@ -185,8 +197,9 @@ export async function POST(request) {
   const { errors, lead } = validate(body);
   if (Object.keys(errors).length) return fail(422, 'validation', 'Проверьте поля формы.', { fields: errors });
 
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
+  // trim: при вставке в панель Vercel легко захватить пробел или перенос строки
+  const token = (process.env.TELEGRAM_BOT_TOKEN || '').trim();
+  const chatId = (process.env.TELEGRAM_CHAT_ID || '').trim();
   if (!token || !chatId) {
     console.error('[lead] TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID are not set');
     return fail(503, 'not_configured', 'Приём заявок временно не работает.');
@@ -216,7 +229,7 @@ export async function POST(request) {
   if (!sent.ok) {
     await cache.del(sidKey);
     console.error('[lead] delivery failed:', sent.reason);
-    return fail(502, 'delivery_failed', 'Не удалось отправить заявку.');
+    return fail(502, 'delivery_failed', 'Не удалось отправить заявку.', { reason: sent.code });
   }
 
   await Promise.all([
