@@ -1260,6 +1260,30 @@ html.lenis, html.lenis body { height: auto; }
 
 .request__legal { font-size: 13px; color: #6d737b; }
 
+/* ловушка для ботов: вне экрана, но не display:none — такие поля боты пропускают */
+.request__hp {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.request__error {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  font-size: 15px;
+  line-height: 1.5;
+  border: 1px solid rgba(226, 96, 79, 0.45);
+  background: rgba(226, 96, 79, 0.08);
+}
+.request__error p:first-child { color: #f08a7b; font-weight: 600; }
+.request__error a { color: var(--polish); border-bottom: 1px solid currentColor; }
+
+.btn:disabled { cursor: progress; opacity: 0.72; }
+
 .request__done { display: grid; justify-items: start; gap: 14px; padding-block: 24px; outline: none; }
 .request__done[hidden] { display: none; }
 .request__done svg { width: 56px; height: 56px; margin-bottom: 8px; }

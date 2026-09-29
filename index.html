@@ -547,7 +547,17 @@
               <textarea name="comment" rows="3" placeholder="Например: гудит на трассе, хочу убрать гул, но оставить бас. Марка, год и пробег — если знаете"></textarea>
             </label>
 
-            <button class="btn btn--steel btn--full" type="submit"><span data-submit-label>Записаться</span></button>
+            <!-- ловушка для ботов: человек это поле не видит и не заполняет -->
+            <label class="request__hp" aria-hidden="true">Не заполняйте это поле
+              <input type="text" name="botcheck" tabindex="-1" autocomplete="off" />
+            </label>
+
+            <div class="request__error" data-request-error role="alert" hidden>
+              <p data-request-error-text>Не удалось отправить заявку.</p>
+              <p>Позвоните <a href="tel:+79204513656">+7 920 451-36-56</a> или напишите в&nbsp;<a href="https://t.me/Vadimid31911" target="_blank" rel="noopener">Telegram</a> — ответим сразу.</p>
+            </div>
+
+            <button class="btn btn--steel btn--full" type="submit" data-submit><span data-submit-label>Записаться</span></button>
             <p class="request__legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
           </form>
 

@@ -725,8 +725,72 @@ function initRequest() {
     phoneError.hidden = true;
   });
 
-  form.addEventListener('submit', (e) => {
+  const submit = $('[data-submit]');
+  const submitLabel = $('[data-submit-label]');
+  const errorBox = $('[data-request-error]');
+  const errorText = $('[data-request-error-text]');
+  const startedAt = performance.now();
+  // один id на одну заполненную форму: повторная отправка той же формы не создаёт дубль у владельца
+  const newSubmissionId = () =>
+    (crypto.randomUUID ? crypto.randomUUID() : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}`);
+  let submissionId = newSubmissionId();
+  let sending = false;
+
+  const setSending = (on) => {
+    sending = on;
+    submit.disabled = on;
+    submit.setAttribute('aria-busy', String(on));
+    submitLabel.textContent = on ? 'Отправляем…' : MODES[requestMode].submit;
+  };
+
+  const showError = (message, fields = {}) => {
+    errorText.textContent = message;
+    errorBox.hidden = false;
+    for (const key of ['name', 'phone']) {
+      if (fields[key]) form.elements[key].closest('.field').classList.add('is-invalid');
+    }
+    if (fields.phone) {
+      phoneError.textContent = fields.phone;
+      phoneError.hidden = false;
+    }
+  };
+
+  async function sendLead() {
+    const fd = new FormData(form);
+    const payload = {
+      mode: requestMode,
+      name: fd.get('name'),
+      phone: fd.get('phone'),
+      car: fd.get('car'),
+      service: fd.get('service') || '',
+      date: fd.get('date') || '',
+      comment: fd.get('comment') || '',
+      page: location.href,
+      submissionId,
+      botcheck: fd.get('botcheck') || '',
+      elapsedMs: Math.round(performance.now() - startedAt),
+    };
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 15000);
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        signal: ctrl.signal,
+      });
+      const data = await res.json().catch(() => ({}));
+      return { ok: res.ok && data.ok === true, status: res.status, data };
+    } catch {
+      return { ok: false, status: 0, data: {} };
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (sending) return;
     const name = form.elements.name;
     const nameOk = name.value.trim().length > 1;
     const phoneOk = phone.value.replace(/\D/g, '').length === 11;
@@ -737,8 +801,20 @@ function initRequest() {
     if (!nameOk) return name.focus();
     if (!phoneOk) return phone.focus();
 
-    // TODO: отправка на сервер / в CRM / в Telegram-бот. Сейчас заявка никуда не уходит.
-    console.info('[demo] заявка', { mode: requestMode, ...Object.fromEntries(new FormData(form)) });
+    errorBox.hidden = true;
+    setSending(true);
+    const result = await sendLead();
+    setSending(false);
+
+    // «Вы записаны» — только после подтверждения от сервера
+    if (!result.ok) {
+      const { status, data } = result;
+      if (status === 0) showError('Нет связи с сервером — заявка не отправлена. Проверьте интернет и попробуйте ещё раз.');
+      else if (status === 422) showError(data.message || 'Проверьте поля формы.', data.fields);
+      else if (status === 409 || status === 429) showError(data.message);
+      else showError('Не удалось отправить заявку — сервис приёма временно недоступен. Попробуйте ещё раз через минуту.');
+      return;
+    }
 
     $('[data-done-title]').textContent = MODES[requestMode].done;
     form.hidden = true;
@@ -752,6 +828,8 @@ function initRequest() {
 
   $('[data-request-reset]').addEventListener('click', () => {
     form.reset();
+    submissionId = newSubmissionId();
+    errorBox.hidden = true;
     form.hidden = false;
     tabs.hidden = false;
     done.hidden = true;
